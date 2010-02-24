@@ -34,6 +34,13 @@
    (-?> nil .toUpperCase (.substring 1)) returns nil
    "
    -> -?>)
+
+(defnilsafe 
+  "Same as clojure.core/->> but returns nil as soon as the threaded value is nil itself (thus short-circuiting any pending computation).
+   Examples :
+   (-?> \"foo\" (str \"?\")) returns \"?foo\"
+   "
+   ->> -?>>)
     
 (defnilsafe 
   "Same as clojure.core/.. but returns nil as soon as the threaded value is nil itself (thus short-circuiting any pending computation).

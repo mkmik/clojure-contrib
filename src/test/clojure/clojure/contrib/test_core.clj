@@ -30,6 +30,11 @@
     (is (nil? (-?> "foo" seq next next next .toString))))
   (testing "Version -?> works well for some basic use cases"
     (is (= (list \O \O) (-?> "foo" .toUpperCase rest))))
+  (testing "Version -?>> returns nil if passed nil"
+    (is (nil? (-?> nil (str "?"))))
+    (is (nil? (-?> "foo" seq next next next .toString))))
+  (testing "Version -?>> works well for some basic use cases"
+    (is (= "?foo" (-?>> "foo" (str "?")))))
   (testing "Version .?. returns nil if one of the intermediate threaded values is nil"
     (is (nil? (.?. nil toString)))
     (is (nil? (.?. [nil] (get 0) toString)))))
